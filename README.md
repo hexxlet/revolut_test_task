@@ -89,8 +89,8 @@ $ java -jar revolut_<span class="hljs-built_in">test</span>_task_kt-<span class=
 }
 </code></pre>
 <h3 class="code-line" data-line-start=75 data-line-end=76 ><a id="Transfer_money_75"></a>Transfer money</h3>
-<p class="has-line-data" data-line-start="76" data-line-end="79"><strong>Important note!</strong><br>
-Concurrent transactions on same accounts are handled.<br>
+<h5 class="code-line" data-line-start=76 data-line-end=77 ><a id="Important_note_76"></a>Important note!</h5>
+<p class="has-line-data" data-line-start="77" data-line-end="79">Concurrent transactions on same accounts are handled.<br>
 Optimistic lock used. Check implementation in OperationService class and AccountRepository interface.</p>
 <pre><code class="has-line-data" data-line-start="80" data-line-end="87">POST /transfers
 {
@@ -132,4 +132,10 @@ Optimistic lock used. Check implementation in OperationService class and Account
         &quot;time&quot;: &quot;2020-02-17 07:00:21&quot;
     }
 ]
+</code></pre>
+<h3 class="code-line" data-line-start=126 data-line-end=127 ><a id="Exceptions_126"></a>Exceptions</h3>
+<p class="has-line-data" data-line-start="127" data-line-end="128">If an error happens response with <strong>500</strong> code returned</p>
+<pre><code class="has-line-data" data-line-start="129" data-line-end="133">{
+    &quot;status&quot;: &quot;BAD&quot;
+}
 </code></pre>
