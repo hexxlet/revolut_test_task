@@ -53,8 +53,8 @@ fun enableEndpoints(sessionFactory: SqlSessionFactory) {
         }
     }
 
-    get("/accounts/info/:id"){ req, resp ->
-        logger.info("/accounts/info for account: ${req.params("id")}")
+    get("/accounts/:id"){ req, resp ->
+        logger.info("/accounts for account: ${req.params("id")}")
         resp.type("application/json")
         sessionFactory.openSession().use { session ->
             try {

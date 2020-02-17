@@ -43,7 +43,7 @@ class MoneyTransferTest {
         request.body(AccountVo("", "147.73"))
         val response = request.post("/accounts/new")
         val accountId = response.jsonPath().get<String>("accountId")
-        `when`().get("/accounts/info/$accountId").then().body("balance", equalTo("147.73"))
+        `when`().get("/accounts/$accountId").then().body("balance", equalTo("147.73"))
     }
 
     @Test
@@ -68,7 +68,7 @@ class MoneyTransferTest {
         val statusCode: Int = transferResp.getStatusCode()
         Assert.assertEquals(201, statusCode)
 
-        `when`().get("/accounts/info/$accountIdFirstAcc").then().body("balance", equalTo("0.00"))
-        `when`().get("/accounts/info/$accountIdSecondAcc").then().body("balance", equalTo("56.00"))
+        `when`().get("/accounts/$accountIdFirstAcc").then().body("balance", equalTo("0.00"))
+        `when`().get("/accounts/$accountIdSecondAcc").then().body("balance", equalTo("56.00"))
     }
 }
